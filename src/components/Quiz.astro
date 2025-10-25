@@ -1,0 +1,260 @@
+<div class="flex flex-col items-center justify-center mt-5 relative">
+    <span class="text-3xl">Tarik Tambang Fisika</span>
+    <div class="w-80 rounded-lg bg-amber-300 absolute left-5 top-0" id="team-a">
+        <div id="question-a" class="bg-blue-900 p-8 rounded-t-lg text-white">
+        </div>
+        <table class="flex justify-center my-5">
+            <tr
+                ><td colspan="3"
+                    ><input
+                        class="w-full border-2 rounded-md h-8"
+                        type="text"
+                        id="display-a"
+                        value=""
+                        disabled
+                    /></td
+                ></tr
+            >
+            <tr>
+                <td><input class="number-a" type="button" value="1" /></td>
+                <td><input class="number-a" type="button" value="2" /></td>
+                <td><input class="number-a" type="button" value="3" /></td>
+            </tr>
+            <tr>
+                <td><input class="number-a" type="button" value="4" /></td>
+                <td><input class="number-a" type="button" value="5" /></td>
+                <td><input class="number-a" type="button" value="6" /></td>
+            </tr>
+            <tr>
+                <td><input class="number-a" type="button" value="7" /></td>
+                <td><input class="number-a" type="button" value="8" /></td>
+                <td><input class="number-a" type="button" value="9" /></td>
+            </tr>
+            <tr>
+                <td><input id="clear-a" type="button" value="C" /></td>
+                <td><input class="number-a" type="button" value="0" /></td>
+                <td><input id="submit-a" type="button" value="Go" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="flex mt-10 w-full items-center justify-center">
+        <div class="w-0.5 bg-black h-25 absolute"></div>
+        <canvas id="canvas" width="700" height="300">
+            Sorry, your browser does not support canvas.
+        </canvas>
+    </div>
+    <div
+        class="w-80 rounded-lg bg-amber-300 absolute right-5 top-0"
+        id="team-b"
+    >
+        <div id="question-b" class="bg-blue-900 p-8 rounded-t-lg text-white">
+        </div>
+        <table class="flex justify-center my-5">
+            <tr
+                ><td colspan="3"
+                    ><input
+                        class="w-full border-2 rounded-md h-8"
+                        type="text"
+                        id="display-b"
+                        value=""
+                        disabled
+                    /></td
+                ></tr
+            >
+            <tr>
+                <td><input class="number-b" type="button" value="1" /></td>
+                <td><input class="number-b" type="button" value="2" /></td>
+                <td><input class="number-b" type="button" value="3" /></td>
+            </tr>
+            <tr>
+                <td><input class="number-b" type="button" value="4" /></td>
+                <td><input class="number-b" type="button" value="5" /></td>
+                <td><input class="number-b" type="button" value="6" /></td>
+            </tr>
+            <tr>
+                <td><input class="number-b" type="button" value="7" /></td>
+                <td><input class="number-b" type="button" value="8" /></td>
+                <td><input class="number-b" type="button" value="9" /></td>
+            </tr>
+            <tr>
+                <td><input id="clear-b" type="button" value="C" /></td>
+                <td><input class="number-b" type="button" value="0" /></td>
+                <td><input id="submit-b" type="button" value="Go" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="module" is:inline>
+    async function getData() {
+        const response = await fetch("/src/data/questions.json");
+        const data = await response.json();
+        return data;
+    }
+
+    const questionsData = await getData();
+
+    const gameState = {
+        questions: questionsData,
+        currentQuestionIndex: 0,
+        teamAScore: 0,
+        teamBScore: 0,
+        blueX: 100,
+        redX: 500,
+        brownX: 190,
+        gameEnded: false,
+    };
+
+    console.log(gameState.questions[gameState.currentQuestionIndex]);
+
+    console.log("Questions data loaded:", questionsData);
+
+    const winningScore = 5;
+    const step = 10;
+
+    const elements = {
+        canvas: document.getElementById("canvas"),
+        teamA: {
+            teamA: document.getElementById("team-a"),
+            numbers: document.querySelectorAll(".number-a"),
+            clear: document.getElementById("clear-a"),
+            submit: document.getElementById("submit-a"),
+            display: document.getElementById("display-a"),
+            question: document.getElementById("question-a"),
+        },
+        teamB: {
+            teamB: document.getElementById("team-b"),
+            numbers: document.querySelectorAll(".number-b"),
+            clear: document.getElementById("clear-b"),
+            submit: document.getElementById("submit-b"),
+            display: document.getElementById("display-b"),
+            question: document.getElementById("question-b"),
+        },
+    };
+
+    const ctx = elements.canvas.getContext("2d");
+
+    function drawAvatar() {
+        const blueAvatar = new Image();
+        const redAvatar = new Image();
+        blueAvatar.src = "/src/assets/blue.png";
+        redAvatar.src = "/src/assets/red.png";
+        ctx.clearRect(
+            0,
+            0,
+            elements.canvas.clientWidth,
+            elements.canvas.clientHeight
+        );
+        blueAvatar.onload = () => {
+            ctx.drawImage(blueAvatar, gameState.blueX, 70);
+        };
+        redAvatar.onload = () => {
+            ctx.drawImage(redAvatar, gameState.redX, 70);
+            ctx.fillStyle = "brown";
+            ctx.fillRect(gameState.brownX, 140, 320, 10);
+        };
+    }
+
+    function initGame() {
+        updateQuestion();
+        drawAvatar();
+    }
+
+    function updateQuestion() {
+        const currentQuestion =
+            gameState.questions[gameState.currentQuestionIndex].question;
+        console.log("Current Question:", currentQuestion);
+        elements.teamA.question.textContent = currentQuestion;
+        elements.teamB.question.textContent = currentQuestion;
+    }
+
+    function setupNumberInputs(team) {
+        team.numbers.forEach((button) => {
+            button.addEventListener("click", function () {
+                if (!gameState.gameEnded) {
+                    let value = this.value;
+                    team.display.value += value;
+                }
+            });
+        });
+    }
+
+    function setupClearButton(team) {
+        team.clear.addEventListener("click", () => {
+            team.display.value = "";
+        });
+    }
+
+    function showWrong(displayElement) {
+        displayElement.classList.add("bg-red-300");
+        setTimeout(() => {
+            displayElement.classList.remove("bg-red-300");
+        }, 300);
+    }
+
+    function checkWin(team, teamName) {
+        if (team.score >= winningScore) {
+            gameState.gameEnded = true;
+            gameState.brownX = 190;
+            gameState.blueX = 100;
+            gameState.redX = 500;
+            alert(`${teamName} wins!`);
+            return true;
+        }
+        return false;
+    }
+
+    function setupSubmitButton(team, isTeamA) {
+        team.submit.addEventListener("click", () => {
+            if (gameState.gameEnded) return;
+
+            const currentQuestion =
+                gameState.questions[gameState.currentQuestionIndex];
+            const userAnswer = team.display.value;
+            console.log("User Answer:", userAnswer);
+            console.log("Correct Answer:", currentQuestion.answer);
+
+            if (userAnswer == currentQuestion.answer) {
+                if (isTeamA) {
+                    gameState.teamAScore++;
+                    gameState.teamBScore--;
+                    gameState.blueX -= step;
+                    gameState.redX -= step;
+                    gameState.brownX -= step;
+                    drawAvatar();
+                } else {
+                    gameState.teamBScore++;
+                    gameState.teamAScore--;
+                    gameState.blueX += step;
+                    gameState.redX += step;
+                    gameState.brownX += step;
+                    drawAvatar();
+                }
+
+                team.display.value = "";
+
+                const teamName = isTeamA ? "Team A" : "Team B";
+                console.log(`${teamName} scored!`);
+                const currentTeam = isTeamA
+                    ? { score: gameState.teamAScore }
+                    : { score: gameState.teamBScore };
+
+                if (!checkWin(currentTeam, teamName)) {
+                    gameState.currentQuestionIndex++;
+                    updateQuestion();
+                }
+            } else {
+                team.display.value = "";
+                showWrong(team.display);
+            }
+        });
+    }
+
+    setupNumberInputs(elements.teamA);
+    setupNumberInputs(elements.teamB);
+    setupClearButton(elements.teamA);
+    setupClearButton(elements.teamB);
+    setupSubmitButton(elements.teamA, true);
+    setupSubmitButton(elements.teamB, false);
+    initGame();
+</script>

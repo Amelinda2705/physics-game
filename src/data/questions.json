@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "question": "Pada sebuah kawat penghantar mengalir arus listrik sebesar 0,5 A. Jumlah muatan yang dilewati selama 120 menit adalah ...",
+        "answer": 10
+    },
+    {
+        "id": 2,
+        "question": "Beda potensial A dan B adalah 1.500 volt, di mana muatan yang berpindah sebesar 0,4 milicoulomb maka energinya ...",
+        "answer": 10
+    },
+    {
+        "id": 3,
+        "question": "Hambatan sebuah penghantar memiliki beda potensial 100 volt dan mengalir arus listrik 500 miliampere adalah ...",
+        "answer": 10
+    },
+    {
+        "id": 4,
+        "question": "Untuk memindahkan listrik 0,4 coulomb dari P ke Q diperlukan energi 96 joule. Perbedaan potensial antara P dan Q adalah ...",
+        "answer": 10
+    },
+    {
+        "id": 5,
+        "question": "Hambatan sebuah setrika listrik yang dipakai pada tegangan 220 V adalah 40 Ω. Berapakah kuat arus listrik yang harus dialirkan pada penghantar agar setrika tersebut dapat berfungsi?",
+        "answer": 10
+    },
+    {
+        "id": 6,
+        "question": "Sebuah lampu pijar yang memiliki hambatan 100 Ω dihubungkan dengan sumber tegangan 220 V. Berapakah besar arus listrik yang mengalir pada lampu tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 7,
+        "question": "Sebuah alat listrik yang mempunyai hambatan 50 Ω dihubungkan dengan sumber tegangan 220 V. Berapakah besar arus listrik yang mengalir pada alat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 8,
+        "question": "Sebuah alat listrik yang mempunyai hambatan 220 Ω dihubungkan dengan sumber tegangan 110 V. Berapakah besar arus listrik yang mengalir pada alat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 9,
+        "question": "Sebuah alat listrik yang mempunyai hambatan 440 Ω dihubungkan dengan sumber tegangan 220 V. Berapakah besar arus listrik yang mengalir pada alat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 10,
+        "question": "Sebuah alat listrik yang mempunyai hambatan 330 Ω dihubungkan dengan sumber tegangan 110 V. Berapakah besar arus listrik yang mengalir pada alat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 11,
+        "question": "Sebuah ponsel memiliki baterai dengan kapasitas 3.000 mAh. Saat sedang digunakan untuk bermain game, ponsel tersebut mampu mengalirkan muatan listrik sebesar 6.300 Coulomb dalam waktu 15 menit. Berapa ampere besar kuat arus listrik yang mengalir pada saat itu?",
+        "answer": 10
+    },
+    {
+        "id": 12,
+        "question": "Sebuah baterai memiliki beda potensial sebesar 9 Volt. Jika baterai tersebut digunakan untuk mengalirkan arus listrik sebesar 2 Ampere, berapakah energi yang dikeluarkan oleh baterai tersebut dalam waktu 5 detik?",
+        "answer": 10
+    },
+    {
+        "id": 13,
+        "question": "Sebuah kawat penghantar memiliki hambatan sebesar 20 Ohm. Jika pada kawat tersebut mengalir arus listrik sebesar 3 Ampere, berapakah beda potensial antara kedua ujung kawat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 14,
+        "question": "Sebuah alat listrik memiliki hambatan sebesar 15 Ohm. Jika alat tersebut dihubungkan dengan sumber tegangan sebesar 120 Volt, berapakah besar arus listrik yang mengalir pada alat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 15,
+        "question": "Sebuah lampu pijar memiliki hambatan sebesar 60 Ohm. Jika lampu tersebut dihubungkan dengan sumber tegangan sebesar 240 Volt, berapakah besar arus listrik yang mengalir pada lampu tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 16,
+        "question": "Sebuah setrika listrik memiliki hambatan sebesar 44 Ohm. Jika setrika tersebut dihubungkan dengan sumber tegangan sebesar 220 Volt, berapakah besar arus listrik yang mengalir pada setrika tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 17,
+        "question": "Sebuah alat listrik memiliki hambatan sebesar 80 Ohm. Jika alat tersebut dihubungkan dengan sumber tegangan sebesar 160 Volt, berapakah besar arus listrik yang mengalir pada alat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 18,
+        "question": "Sebuah kawat penghantar memiliki hambatan sebesar 10 Ohm. Jika pada kawat tersebut mengalir arus listrik sebesar 5 Ampere, berapakah beda potensial antara kedua ujung kawat tersebut?",
+        "answer": 10
+    },
+    {
+        "id": 19,
+        "question": "Sebuah baterai memiliki beda potensial sebesar 12 Volt. Jika baterai tersebut digunakan untuk mengalirkan arus listrik sebesar 3 Ampere, berapakah energi yang dikeluarkan oleh baterai tersebut dalam waktu 4 detik?",
+        "answer": 10
+    },
+    {
+        "id": 20,
+        "question": "Sebuah ponsel memiliki baterai dengan kapasitas 2.500 mAh. Saat sedang digunakan untuk menonton video, ponsel tersebut mampu mengalirkan muatan listrik sebesar 5.400 Coulomb dalam waktu 12 menit. Berapa ampere besar kuat arus listrik yang mengalir pada saat itu?",
+        "answer": 10
+    }
+]
