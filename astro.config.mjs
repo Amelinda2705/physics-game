@@ -4,38 +4,41 @@ import tailwindcss from "@tailwindcss/vite";
 
 import db from "@astrojs/db";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
-    experimental: {
-        fonts: [
-            {
-                name: "FE 5 Cent",
-                cssVariable: "--font-fe5cent",
-                provider: "local",
+  experimental: {
+      fonts: [
+          {
+              name: "FE 5 Cent",
+              cssVariable: "--font-fe5cent",
+              provider: "local",
 
-                variants: [
-                    {
-                        weight: 400,
-                        style: "normal",
-                        src: ["public/fonts/FE5Cent-Regular.ttf"],
-                    },
-                ],
-            },
-            {
-                provider: fontProviders.google(),
-                name: "Poppins",
-                cssVariable: "--font-roboto",
-            },
-        ],
-    },
+              variants: [
+                  {
+                      weight: 400,
+                      style: "normal",
+                      src: ["public/fonts/FE5Cent-Regular.ttf"],
+                  },
+              ],
+          },
+          {
+              provider: fontProviders.google(),
+              name: "Poppins",
+              cssVariable: "--font-roboto",
+          },
+      ],
+  },
 
-    devToolbar: {
-        enabled: false,
-    },
+  devToolbar: {
+      enabled: false,
+  },
 
-    vite: {
-        plugins: [tailwindcss()],
-    },
+  vite: {
+      plugins: [tailwindcss()],
+  },
 
-    integrations: [db()],
+  integrations: [db()],
+  adapter: netlify(),
 });

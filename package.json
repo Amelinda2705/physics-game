@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@astrojs/db": "^0.18.1",
+        "@astrojs/netlify": "^6.6.0",
         "@tailwindcss/vite": "^4.1.15",
         "astro": "^5.14.8",
         "tailwindcss": "^4.1.15"
