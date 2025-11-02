@@ -3,6 +3,9 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import { db, Questions, eq } from "astro:db";
 
+export const prerender = false;
+
+// Handle POST requests and redirect to prevent form resubmission
 if (Astro.request.method === "POST") {
     const formData = await Astro.request.formData();
     const action = formData.get("action");
@@ -45,6 +48,7 @@ if (Astro.request.method === "POST") {
     }
 }
 
+// Get success/error messages from URL
 const url = new URL(Astro.request.url);
 const successParam = url.searchParams.get("success");
 const errorParam = url.searchParams.get("error");
@@ -170,7 +174,6 @@ const questions = await db.select().from(Questions);
 </Layout>
 
 <script type="module">
-    // Open popup for adding new question
     document.getElementById("addQuestion").onclick = function () {
         document.getElementById("popupTitle").textContent = "Add New Question";
         document.getElementById("questionForm").reset();

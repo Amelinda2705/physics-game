@@ -4,7 +4,14 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <span>Welcome</span>
-    <button><a href="/admin/">Admin Page</a></button>
-    <button class="mt-70"><a href="/game/">Game Start!</a></button>
+    <div class="m-10 flex items-center justify-center flex-col">
+        <span class="font-black text-5xl absolute top-53">Welcome</span>
+        <div class="absolute bottom-30">
+            <button><a href="/admin/">Admin Page</a></button>
+
+            <button class="bg-color-transparent p-10 border-2">
+                <a href="/game/">Game Start!</a></button
+            >
+        </div>
+    </div>
 </Layout>

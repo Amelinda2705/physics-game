@@ -1,13 +1,19 @@
-<div class="flex flex-col items-center justify-center mt-5 relative">
+<div class="flex flex-col items-center justify-center mt-5 relative" id="quiz">
     <span class="text-3xl">Tarik Tambang Fisika</span>
-    <div class="w-80 rounded-lg bg-amber-300 absolute left-5 top-0" id="team-a">
-        <div id="question-a" class="bg-blue-900 p-8 rounded-t-lg text-white">
+    <div
+        class="w-80 rounded-lg bg-white/80 backdrop-blur-sm absolute left-5 top-0"
+        id="team-a"
+    >
+        <div
+            id="question-a"
+            class="bg-white/10 backdrop-blur-sm p-8 rounded-t-lg text-black"
+        >
         </div>
         <table class="flex justify-center my-5">
             <tr
                 ><td colspan="3"
                     ><input
-                        class="w-full border-2 rounded-md h-8"
+                        class="w-full border-2 rounded-md h-8 p-3 text-black"
                         type="text"
                         id="display-a"
                         value=""
@@ -44,16 +50,19 @@
         </canvas>
     </div>
     <div
-        class="w-80 rounded-lg bg-amber-300 absolute right-5 top-0"
+        class="w-80 rounded-lg bg-white/80 backdrop-blur-sm a absolute right-5 top-0"
         id="team-b"
     >
-        <div id="question-b" class="bg-blue-900 p-8 rounded-t-lg text-white">
+        <div
+            id="question-b"
+            class="bg-white/10 backdrop-blur-sm a p-8 rounded-t-lg text-black"
+        >
         </div>
         <table class="flex justify-center my-5">
             <tr
                 ><td colspan="3"
                     ><input
-                        class="w-full border-2 rounded-md h-8"
+                        class="w-full border-2 rounded-md h-8 p-3 text-black"
                         type="text"
                         id="display-b"
                         value=""
@@ -101,7 +110,7 @@
         teamBScore: 0,
         blueX: 100,
         redX: 500,
-        brownX: 190,
+        brownX: 208,
         gameEnded: false,
     };
 
@@ -146,12 +155,12 @@
             elements.canvas.clientHeight
         );
         blueAvatar.onload = () => {
-            ctx.drawImage(blueAvatar, gameState.blueX, 70);
+            ctx.drawImage(blueAvatar, gameState.blueX, 30);
         };
         redAvatar.onload = () => {
-            ctx.drawImage(redAvatar, gameState.redX, 70);
-            ctx.fillStyle = "brown";
-            ctx.fillRect(gameState.brownX, 140, 320, 10);
+            ctx.drawImage(redAvatar, gameState.redX, 30);
+            ctx.fillStyle = "#3E2630";
+            ctx.fillRect(gameState.brownX, 132, 292, 13);
         };
     }
 

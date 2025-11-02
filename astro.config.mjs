@@ -6,23 +6,36 @@ import db from "@astrojs/db";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    fonts: [
-      {
-        name: "Poppins",
-        cssVariable: "--font-poppins",
-        provider: fontProviders.google()
-      },
-    ]
-  },
+    experimental: {
+        fonts: [
+            {
+                name: "FE 5 Cent",
+                cssVariable: "--font-fe5cent",
+                provider: "local",
 
-  devToolbar: {
-    enabled: false,
-  },
+                variants: [
+                    {
+                        weight: 400,
+                        style: "normal",
+                        src: ["public/fonts/FE5Cent-Regular.ttf"],
+                    },
+                ],
+            },
+            {
+                provider: fontProviders.google(),
+                name: "Poppins",
+                cssVariable: "--font-roboto",
+            },
+        ],
+    },
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
+    devToolbar: {
+        enabled: false,
+    },
 
-  integrations: [db()],
+    vite: {
+        plugins: [tailwindcss()],
+    },
+
+    integrations: [db()],
 });
