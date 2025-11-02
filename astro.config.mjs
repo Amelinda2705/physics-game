@@ -6,6 +6,8 @@ import db from "@astrojs/db";
 
 import netlify from "@astrojs/netlify";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   experimental: {
@@ -40,5 +42,5 @@ export default defineConfig({
   },
 
   integrations: [db()],
-  adapter: netlify(),
+  adapter: cloudflare(),
 });
