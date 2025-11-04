@@ -1,6 +1,8 @@
 ---
 import { db, Questions } from "astro:db";
 import Layout from "../layouts/Layout.astro";
+import blueAvatarImg from "../assets/blue.png";
+import redAvatarImg from "../assets/red.png";
 
 let questions;
 
@@ -62,7 +64,12 @@ try {
         </div>
         <div class="flex mt-10 w-full items-center justify-center">
             <div class="w-0.5 bg-black h-25 absolute"></div>
-            <canvas id="canvas" width="700" height="300">
+            <canvas
+                id="canvas"
+                width="700"
+                height="300"
+                style="max-width: 100%;"
+            >
                 Sorry, your browser does not support canvas.
             </canvas>
         </div>
@@ -112,7 +119,7 @@ try {
     </div>
 </Layout>
 
-<script type="module" define:vars={{ questions }}>
+<script type="module" define:vars={{ questions, blueAvatarImg, redAvatarImg }}>
     const gameState = {
         questions: questions,
         currentQuestionIndex: 0,
@@ -156,8 +163,8 @@ try {
     function drawAvatar() {
         const blueAvatar = new Image();
         const redAvatar = new Image();
-        blueAvatar.src = "/src/assets/blue.png";
-        redAvatar.src = "/src/assets/red.png";
+        blueAvatar.src = blueAvatarImg;
+        redAvatar.src = redAvatarImg;
         ctx.clearRect(
             0,
             0,
