@@ -102,34 +102,15 @@ if (errorParam) errorMessage = "An error occurred. Please try again.";
             const response = await fetch("/api/questions");
 
             if (!response.ok) {
-                const errorData = await response
-                    .json()
-                    .catch(() => ({ error: "Unknown error" }));
-                throw new Error(
-                    `Server error: ${errorData.error || response.status}`
-                );
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             const questions = await response.json();
-
-            // Check if the response is an error object
-            if (questions.error) {
-                throw new Error(questions.message || questions.error);
-            }
-
             displayQuestions(questions);
         } catch (error) {
             console.error("Error loading questions:", error);
-            const errorMessage = error.message.includes("Failed to fetch")
-                ? "Network error: Cannot connect to server"
-                : error.message;
-
-            document.getElementById("loading").innerHTML = `
-                <div class="alert alert-error">
-                    Error: ${errorMessage}
-                </div>
-                <p class="text-sm mt-2">Check browser console for details</p>
-            `;
+            document.getElementById("loading").innerHTML =
+                "Error loading questions: " + error.message;
         }
     }
 
