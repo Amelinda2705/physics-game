@@ -2,9 +2,13 @@
 import { db, Questions } from "astro:db";
 import Layout from "../layouts/Layout.astro";
 
-const questions = await db.select().from(Questions);
-console.log("Server-side questions:", questions);
-console.log("Questions count:", questions.length);
+let questions;
+
+try {
+    questions = await db.select().from(Questions);
+} catch (error) {
+    console.error("DB Error:", error);
+}
 ---
 
 <Layout>

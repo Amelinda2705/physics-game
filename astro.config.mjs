@@ -42,6 +42,9 @@ export default defineConfig({
     },
 
     integrations: [db()],
+    db: {
+        studio: false,
+    },
 
     adapter: cloudflare({
         imageService: "compile",
