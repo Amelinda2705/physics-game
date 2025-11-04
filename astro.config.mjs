@@ -39,6 +39,14 @@ export default defineConfig({
         ssr: {
             external: ["source-map-js"],
         },
+        define: {
+            "process.env.ASTRO_DB_REMOTE_URL": JSON.stringify(
+                process.env.ASTRO_DB_REMOTE_URL
+            ),
+            "process.env.ASTRO_DB_APP_TOKEN": JSON.stringify(
+                process.env.ASTRO_DB_APP_TOKEN
+            ),
+        },
     },
 
     integrations: [db()],
