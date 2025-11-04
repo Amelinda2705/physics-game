@@ -1,6 +1,10 @@
 ---
-import Quiz from "../components/Quiz.astro";
+import { db, Questions } from "astro:db";
 import Layout from "../layouts/Layout.astro";
+
+const questions = await db.select().from(Questions);
+console.log("Server-side questions:", questions);
+console.log("Questions count:", questions.length);
 ---
 
 <Layout>
@@ -104,17 +108,9 @@ import Layout from "../layouts/Layout.astro";
     </div>
 </Layout>
 
-<script type="module" is:inline>
-    async function getData() {
-        const response = await fetch("/src/data/questions.json");
-        const data = await response.json();
-        return data;
-    }
-
-    const questionsData = await getData();
-
+<script type="module" define:vars={{ questions }}>
     const gameState = {
-        questions: questionsData,
+        questions: questions,
         currentQuestionIndex: 0,
         teamAScore: 0,
         teamBScore: 0,
@@ -126,7 +122,7 @@ import Layout from "../layouts/Layout.astro";
 
     console.log(gameState.questions[gameState.currentQuestionIndex]);
 
-    console.log("Questions data loaded:", questionsData);
+    console.log("Questions data loaded:", questions);
 
     const winningScore = 5;
     const step = 10;

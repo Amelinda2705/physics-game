@@ -8,6 +8,10 @@
   font-display: swap;
 } */
 
+:root {
+    --white: #E5E7EB;
+}
+
 body {
     font-family: "FE 5 Cent", sans-serif;
     /* background-image: url("/src/assets/bg.png");
@@ -15,11 +19,11 @@ body {
     background-position: center center; 
     background-repeat: no-repeat;
     background-attachment: fixed; */
-    background-color: #721E1C;
+    background-color: #030620;
     color: beige;
 }
 
-#quiz {
+#quiz,#adminPage {
     font-family: 'Poppins', sans-serif;
 }
 
