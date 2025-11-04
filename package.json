@@ -1,9 +1,9 @@
 {
-    "name": "",
+    "name": "tarik-tambang",
     "type": "module",
     "version": "0.0.1",
     "scripts": {
-        "dev": "astro dev ",
+        "dev": "astro dev --remote",
         "build": "astro build --remote",
         "preview": "astro preview",
         "astro": "astro"
@@ -11,7 +11,6 @@
     "dependencies": {
         "@astrojs/cloudflare": "^12.6.10",
         "@astrojs/db": "^0.18.1",
-        "@astrojs/netlify": "^6.6.0",
         "@tailwindcss/vite": "^4.1.15",
         "astro": "^5.14.8",
         "tailwindcss": "^4.1.15"
